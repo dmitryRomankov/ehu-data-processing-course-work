@@ -1,19 +1,16 @@
--- 1. Categories Table
-CREATE TABLE Categories (
+CREATE TABLE categories (
     category_id SERIAL PRIMARY KEY,
     category_name VARCHAR(255) NOT NULL,
     description VARCHAR(500)
 );
 
--- 2. Brands Table
-CREATE TABLE Brands (
+CREATE TABLE brands (
     brand_id SERIAL PRIMARY KEY,
     brand_name VARCHAR(255) NOT NULL,
     country_of_origin VARCHAR(100)
 );
 
--- 3. Products Table
-CREATE TABLE Products (
+CREATE TABLE products (
     product_id SERIAL PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL,
     category_id INT NOT NULL,
@@ -25,8 +22,7 @@ CREATE TABLE Products (
     CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES Brands (brand_id)
 );
 
--- 4. Suppliers Table
-CREATE TABLE Suppliers (
+CREATE TABLE suppliers (
     supplier_id SERIAL PRIMARY KEY,
     supplier_name VARCHAR(255) NOT NULL,
     contact_name VARCHAR(255),
@@ -35,8 +31,7 @@ CREATE TABLE Suppliers (
     address VARCHAR(500)
 );
 
--- 5. Customers Table
-CREATE TABLE Customers (
+CREATE TABLE customers (
     customer_id SERIAL PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
@@ -45,8 +40,7 @@ CREATE TABLE Customers (
     address VARCHAR(500)
 );
 
--- 6. Orders Table
-CREATE TABLE Orders (
+CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT NOT NULL,
     order_date DATE NOT NULL,
@@ -54,8 +48,7 @@ CREATE TABLE Orders (
     CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
 );
 
--- 7. Order_Items Table
-CREATE TABLE Order_Items (
+CREATE TABLE order_items (
     order_item_id SERIAL PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
@@ -65,8 +58,7 @@ CREATE TABLE Order_Items (
     CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES Products (product_id)
 );
 
--- 8. Inventory Table
-CREATE TABLE Inventory (
+CREATE TABLE inventory (
     inventory_id SERIAL PRIMARY KEY,
     product_id INT NOT NULL,
     supplier_id INT NOT NULL,

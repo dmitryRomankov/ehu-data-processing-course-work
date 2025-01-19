@@ -1,7 +1,6 @@
 -- SQL script to load CSV data into PostgreSQL tables `categories` and `products`
 
 -- Categories from csv
-
 CREATE TEMP TABLE temp_categories (
     category_id INT,
     category_name VARCHAR(255),
@@ -26,7 +25,6 @@ WHERE Categories.category_name IS DISTINCT FROM EXCLUDED.category_name
 DROP TABLE IF EXISTS temp_categories;
 
 -- Products from csv
-
 CREATE TEMP TABLE temp_products (
     product_id INT,
     product_name VARCHAR(255),
